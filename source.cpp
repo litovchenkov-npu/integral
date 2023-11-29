@@ -20,7 +20,7 @@ public:
 	double calcRight(double a, double b);
 	double calcMiddle(double a, double b);
 };
-//========================================================================================
+
 int main() {
 	Integral f;
 	cout << "Left: " << fixed << setprecision(4) << f.calcLeft(A, B) << endl;
@@ -29,17 +29,12 @@ int main() {
 
 	return 0;
 }
-//========================================================================================
+
 double Integral::calcLeft(double a, double b) {
 	double h = (b - a) / MAX;
 	double s = 0;
 	double x = a;
-	/*
-	while (x < b) {
-		s += h * func(x);
-		x += h;
-	}
-	*/
+
 	while (x < b) {
 		s += H * func(x);
 		x += H;
@@ -55,12 +50,7 @@ double Integral::calcRight(double a, double b) {
 	double h = (b - a) / MAX;
 	double s = 0;
 	double x = a;
-	/*
-	while (x < b) {
-		s += h * func(x + h);
-		x += h;
-	}
-	*/
+
 	while (x < b) {
 		s += H * func(x + H);
 		x += H;
@@ -76,13 +66,7 @@ double Integral::calcMiddle(double a, double b) {
 	double h = (b - a) / MAX;
 	double s = 0;
 	double x = a;
-	/*
-	while (x < b) {
-		double xAvg = (x + x + h) / 2;
-		s += h * func(xAvg);
-		x += h;
-	}
-	*/
+
 	while (x < b) {
 		double xAvg = (x + x + H) / 2;
 		s += H * func(xAvg);
